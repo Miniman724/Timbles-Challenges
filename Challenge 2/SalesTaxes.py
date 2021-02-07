@@ -8,6 +8,7 @@ import re
 
 # Regex pattern for inputs
 input_pattern = "^[0-9]+ [a-zA-Z\s]+ at \d+\.[0-9]{2}\n$"
+input_pattern2 = "^[0-9]+ [a-zA-Z\s]+ at \d+\.[0-9]{2}$"
 # Sales tax, in %
 sales_tax = 10
 # Import tax in %
@@ -41,13 +42,18 @@ def load_input(filename):
         except:
             filename = input("Invalid file, please try again")
 
-    print("The following input is invalid and has not been included:")
+    ever_failed = False
+    failed = []
 
     for line in file:
         if (re.match(input_pattern, line)):
             input_array.append(line[:-1])
         else:
-            print(line)
+            failed.append(line)
+
+    if ever_failed:
+        print("The following input is invalid and has not been included:")
+        print(failed)
 
     file.close()
     return input_array
@@ -57,7 +63,7 @@ def get_input():
     input_array = []
     while (True):
         line = input("Give input or exit [E]:")
-        if (re.match(input_pattern, line)):
+        if (re.match(input_pattern2, line)):
             input_array.append(line[:-1])
         elif (line == "E"):
             break
