@@ -30,12 +30,14 @@ print(f"It took {t1 - t0} to load the network")
 
 app = Flask(__name__)
 
+# Home page
 @app.route('/')
 def home_page():
     output = "Use /bacon_num/<name> to get bacon number of the actor.\n" \
              "Use /add_movie/{'movie name': ['actor1','actor2'...,'actor n']} to add a movie to the graph."
     return output
 
+# Bacon Number Request
 @app.route('/bacon_num/<string:name>', methods=['GET'])
 def bacon_number(name):
     name = name.replace("_", " ")
@@ -52,6 +54,7 @@ def bacon_number(name):
     else:
         return f"{name} does not exist in the files"
 
+# Add Movie Request
 @app.route('/add_movie/<string:new_movie>', methods=['GET', 'POST', 'PUT'])
 def add_movie(new_movie):
     print(type(new_movie))
@@ -85,3 +88,12 @@ def add_movie(new_movie):
     else:
         return "The entry is invalid"
 
+# Save Graph Request
+@app.route('/save_graph', methods=['GET'])
+def save_graph():
+    t0 = time.time()
+    save_file = open("actor_graph.pickle", "wb")
+    pkl.dump(actor_graph, save_file)
+    graph_file.close()
+    t1 = time.time()
+    return f"It took {t1 - t0} to save the network"
