@@ -15,3 +15,6 @@ Run the Flask App, called app.py
 # Challenge 2:
 Run SalesTaxes.py.
 You are able to enter manually or by txt file.
+
+# Demonstrations:
+In each folder, I have included some screenshots of the results of the programs.
