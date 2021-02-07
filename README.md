@@ -13,5 +13,5 @@ Running the Service:
 Run the Flask App, called app.py
 
 # Challenge 2:
-Run SalesTaxes.py
-You are able to enter manually or by txt file
+Run SalesTaxes.py.
+You are able to enter manually or by txt file.
