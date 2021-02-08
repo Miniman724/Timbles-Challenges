@@ -20,4 +20,5 @@ You are able to enter manually or by txt file.
 In each folder, I have included some screenshots of the results of the programs.
 
 # NOTES
-There is a typo in the picture for "4 create network results.png". It says that 2 nodes are added twice, but one was adding edges.
+1. There is a typo in the picture for "4 create network results.png". It says that 2 nodes are added twice, but one was adding edges.
+2. To add a movie, you would put the dictionary value like so: /add_movie/{"movie_name",["actor 1","actor 2"]}
